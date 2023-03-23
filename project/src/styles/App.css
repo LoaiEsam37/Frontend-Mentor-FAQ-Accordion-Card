@@ -1,0 +1,119 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 15px;
+    width: 700px;
+    min-height: 400px;
+}
+
+.card__image,
+.card__content {
+    flex: 50%;
+    width: 100%;
+}
+
+.card__image img {
+    position: relative;
+    transform: translateX(-60px);
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(10px);
+    display: block;
+    margin-bottom: 20px;
+    max-height: auto;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(0px);
+    max-height: 0;
+}
+
+.active {
+    font-weight: 700;
+    color: black;
+}
+
+.disable {
+    font-weight: 400;
+    color: hsl(237, 12%, 33%);
+}
+
+button {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    margin-left: 0;
+    position: relative;
+}
+
+button::after {
+    content: "";
+    background-size: cover;
+    background-image: url(../assets/icon-arrow-down.svg);
+    width: 9px;
+    height: 5px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+button.active::after {
+    rotate: 180deg;
+}
+
+button:hover {
+    cursor: pointer;
+    color: hsl(14, 88%, 65%);
+}
+
+.collapse {
+    border-bottom: 1px solid hsl(240, 5%, 91%);
+    margin-bottom: 10px;
+    height: fit-content;
+    margin-right: 50px;
+}
+
+.collapse__body {
+    margin-left: 5px;
+}
+
+@media (max-width: 800px) {
+    .card {
+        flex-direction: column;
+        max-width: 360px;
+        margin-top: 100px;
+        position: relative;
+    }
+
+    .card__image {
+        max-width: 70%;
+        flex: 10%;
+    }
+
+    .card__image img {
+        transform: translatey(-110px);
+    }
+
+    .card__content {
+        margin-left: 50px;
+        flex: 90%;
+        width: 100%;
+        margin-top: -200px;
+        text-align: center;
+        top: 0;
+    }
+
+    .card__content--title {
+        margin-left: -50px;
+    }
+}
